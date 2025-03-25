@@ -14,38 +14,68 @@ import {
 import Contact from "./Contact";
 
 const Header = () => {
-  //   const [anchorEl, setAnchorEl] = React.useState(null);
-  //   const open = Boolean(anchorEl);
-  //   const handleClick = (event) => {
-  //     setAnchorEl(event.currentTarget);
-  //   };
-  //   const handleClose = () => {
-  //     setAnchorEl(null);
-  //   };
   return (
     <React.Fragment>
       <Box
         sx={{
           display: "flex",
-          alignItems: "center",
           padding: "20px",
           backgroundColor: "#051747",
           borderRadius: "8px",
           margin: "20px",
+          display: "flex",
           justifyContent: "center",
+          alignItems: "center",
           flexWrap: "wrap",
-          gap: { xs: "10px", sm: "20px" },
-          marginY: { xs: "10px", sm: "20px" },
+          marginY: { xs: "10px", sm: "15px", md: "20px" },
+          "& > *": {
+            margin: { xs: '1px', sm: '2px', md: '4px' },
+            minWidth: { xs: 50, sm: 60, md: 70 },
+            maxWidth: { xs: 70, sm: 90, md: 110 },
+            marginLeft: 10
+          },
+        
         }}
       >
-        <Typography sx={{ minWidth: 100, color: "#E7E9F0", flexGrow: 1 }}>About</Typography>
-        <Typography sx={{ minWidth: 100, color: "#E7E9F0", flexGrow: 1 }}>
+        <Typography
+          sx={{
+            color: "#E7E9F0",
+            flexGrow: 1,
+            textAlign: "center",
+            fontFamily: "sans-serif"
+          }}
+        >
+          About
+        </Typography>
+        <Typography
+          sx={{
+            color: "#E7E9F0",
+            flexGrow: 1,
+            textAlign: "center",
+            fontFamily: "sans-serif"
+          }}
+        >
           My Works
         </Typography>
-        <Typography sx={{ minWidth: 100, color: "#E7E9F0", flexGrow: 1 }}>Skills</Typography>
-        <Typography sx={{ minWidth: 100, color: "#E7E9F0", flexGrow: 1 }}>
+        <Typography
+          sx={{
+            color: "#E7E9F0",
+            flexGrow: 1,
+            textAlign: "center",
+            fontFamily: "sans-serif"
+          }}
+        >
+          Skills
+        </Typography>
+        <Typography
+          sx={{
+            color: "#E7E9F0",
+            flexGrow: 1,
+            textAlign: "center",
+            fontFamily: "sans-serif"
+          }}
+        >
           Contact
-          {/* <CircularProgress color="inherit" /> */}
         </Typography>
         {/* <Tooltip title="Account settings">
           <IconButton
@@ -60,50 +90,6 @@ const Header = () => {
           </IconButton>
         </Tooltip> */}
       </Box>
-      {/* <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        slotProps={{
-          paper: {
-            elevation: 0,
-            sx: {
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-              mt: 1.5,
-              "& .MuiAvatar-root": {
-                width: 32,
-                height: 32,
-                ml: -0.5,
-                mr: 1,
-              },
-              "&::before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                bgcolor: "background.paper",
-                transform: "translateY(-50%) rotate(45deg)",
-                zIndex: 0,
-              },
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-      >
-        <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem>
-      </Menu> */}
     </React.Fragment>
   );
 };

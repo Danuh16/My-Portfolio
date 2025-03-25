@@ -1,48 +1,50 @@
-import React, {useEffect,useRef} from 'react';
-import { Box, Typography, Avatar } from '@mui/material';
-import {Typed} from 'react-typed';
+import React from "react";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import SpinningCircles from "./SpinningCircle";
 
 const AboutMe = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
+
   const name = "Your Name"; // Replace with your name
   const description = "A brief description about yourself..."; // Replace with your description
-  const profilePicture = "path/to/your/profile-picture.jpg"; // Replace with your profile picture path
-//   const descriptionRef = useRef(null);
-
-//   useEffect(() => {
-//     if (descriptionRef.current) {
-//       new Typed(descriptionRef.current, {
-//         strings: [description],
-//         typeSpeed: 120,
-//         loop: true,
-//       });
-//     }
-//   }, [description]);
 
   return (
     <Box
       sx={{
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-        padding: '20px',
-        backgroundColor: '#e7e9f0',
-        borderRadius: '8px',
-        margin: '20px',
-        color:"#051747"
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: isMobile ? "10px" : "20px",
+        backgroundColor: "#e7e9f0",
+        borderRadius: "8px",
+        margin: "10px",
+        color: "#051747",
+        flexDirection: isMobile ? "column" : isTablet ? "column" : "row",
       }}
     >
-      <Avatar
-        alt={name}
-        src={profilePicture}
-        sx={{ width: 100, height: 100, marginBottom: '16px' }}
-      />
-      <Typography variant="h4" component="h2" gutterBottom>
-        {name}
-      </Typography>
-      <Typography variant="body1" align="center">
-       {description}
-      {/* <Typography variant="body1" align="center" ref={descriptionRef}/> */}
-      </Typography>
+      <Box
+        sx={{
+          flex: 1,
+          textAlign: "Center",
+          marginRight: isMobile ? 0 : isTablet ? 0 : "20px",
+          marginBottom: isMobile ? "20px" : isTablet ? "20px" : 0,
+        }}
+      >
+        <Typography variant="h4" component="h2" gutterBottom>
+          {name}
+        </Typography>
+        <Typography variant="body1">{description}</Typography>
+      </Box>
+      <Box
+        sx={{
+          justifyContent: "center",
+          width: isMobile ? "100%" : isTablet ? "100%" : "auto",
+        }}
+      >
+        <SpinningCircles />
+      </Box>
     </Box>
   );
 };
